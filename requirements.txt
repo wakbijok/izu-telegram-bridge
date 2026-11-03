@@ -1,0 +1,5 @@
+claude-agent-sdk==0.2.113
+python-telegram-bot==22.8
+telegramify-markdown==1.2.0
+httpx==0.28.1
+pytest==9.1.1

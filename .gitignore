@@ -1,0 +1,23 @@
+# secrets & deployment identity — never commit
+.env
+.env.*
+!.env.example
+*.env
+config/*.local.*
+engine-token.env
+
+# runtime state
+data/
+.tg-media/
+work/
+*.log
+
+# python
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# backups
+*.bak
+*.bak-*

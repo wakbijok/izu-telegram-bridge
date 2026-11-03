@@ -1,0 +1,19 @@
+# systemd --user unit. Install:
+#   cp deploy/claude-telegram-bridge.service ~/.config/systemd/user/
+#   systemctl --user daemon-reload && systemctl --user enable --now claude-telegram-bridge
+[Unit]
+Description=Claude Code Telegram gateway
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=%h/izu-telegram-bridge
+ExecStart=%h/izu-telegram-bridge/.venv/bin/python3 %h/izu-telegram-bridge/bridge.py
+EnvironmentFile=%h/izu-telegram-bridge/.env
+Restart=on-failure
+RestartSec=10
+MemoryHigh=2G
+
+[Install]
+WantedBy=default.target
